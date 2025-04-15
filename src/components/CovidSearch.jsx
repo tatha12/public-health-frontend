@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { API_BASE } from "../config";
 
 const CovidSearch = () => {
     const [state, setState] = useState("");
@@ -11,7 +12,7 @@ const CovidSearch = () => {
     const fetchCovidData = async () => {
 	setLoading(true);
 	setError("");
-	let url = `http://localhost:8000/api/v1/covid/cases?state=${state}`;
+	let url = `${API_BASE}/api/v1/covid/cases?state=${state}`;
 	if (startDate) url += `&start=${startDate}`;
 	if (endDate) url += `&end=${endDate}`;
 	try {
@@ -53,6 +54,27 @@ const CovidSearch = () => {
 		Search
 	    </button>
 	    {error && <p className="text-red-600">{error}</p>}
+	    {data.length > 0 && (
+		<table className="w-full mt-4 border">
+		    <thead>
+			<tr className="bg-gray-200">
+			    <th className="p-2 border">Date</th>
+			    <th className="p-2 border">Cases</th>
+			    <th className="p-2 border">Deaths</th>
+			</tr>
+		    </thead>
+		    <tbody>
+			{data.map((row, idx) => (
+			    <tr key={idx} className="border-t">
+				<td className="p-2 border">{row.date}</td>
+				<td className="p-2 border">{row.cases}</td>
+				<td className="p-2 border">{row.deaths}</td>
+			    </tr>
+			))}
+		    </tbody>
+		</table>
+	    )}
+	    
 	</div>
     );
 };
