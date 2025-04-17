@@ -50,6 +50,28 @@ const AirQualitySearch = () => {
 		
 		{error && <p className="text-red-600">{error}</p>}
 	    </div>
+	    {data.length > 0 && (
+		<table className="w-full mt-4 border">
+		    <thead>
+			<tr className="bg-green-200">
+			    <th className="p-2 border">Date</th>
+			    <th className="p-2 border">AQI</th>
+			    <th className="p-2 border">Category</th>
+			    <th className="p-2 border">Pollutant</th>
+			</tr>
+		    </thead>
+		    <tbody>
+			{data.map((row, idx) => (
+			    <tr key={idx} className="border-t">
+				<td className="p-2 border">{row.date}</td>
+				<td className="p-2 border">{row.aqi_value}</td>
+				<td className="p-2 border">{row.aqi_category}</td>
+				<td className="p-2 border">{row.pollutant}</td>
+			    </tr>
+			))}
+		    </tbody>
+		</table>
+	    )}
 	</div>
     );
 };
