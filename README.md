@@ -1,29 +1,27 @@
-# 🧪 Public Health Frontend
+# Public Health Frontend
 
-This is the React-based frontend for the Public Health API project.
+This is the React-based frontend for the Public Health Dashboard project. It allows users to search for COVID-19 case and death data by U.S. state and date range, and interact with the backend API.
 
-## 🚀 Overview
+## Features
 
-This project allows users to:
-- Search for COVID-19 case and death data by U.S. state and date range
-- View results in a responsive, styled table
-- Interact with a backend FastAPI server hosted on AWS EC2
+- Search COVID-19 data by state and date
+- View results in a styled and responsive table
+- Communicates with FastAPI backend (hosted locally or on EC2)
 
-## 🔧 Tech Stack
+## Tech Stack
 
-- React (via Vite)
-- Tailwind CSS for styling
-- Fetches data from FastAPI backend (localhost:8000 or EC2 public IP)
+- React (Vite)
+- Tailwind CSS
+- Fetch API for HTTP requests
 
-## 📂 Project Structure (Key Parts)
+## Project Structure
 
-- `src/components/` – React components (e.g., CovidSearch)
-- `src/App.jsx` – Main layout and routing entry point
-- `src/index.css` – Tailwind CSS entry point
+- `src/components/` – Reusable React components
+- `src/App.jsx` – Main layout
+- `src/index.css` – Tailwind CSS configuration
 
-## ⏭️ Coming Soon
+## Future Additions
 
-- Air quality search UI
-- Visualizations (charts, graphs)
-- Responsive dashboard
-- Tests using React Testing Library and Jest
+- Air quality data search
+- Charts and visualizations
+- Frontend testing with React Testing Library and Jest
